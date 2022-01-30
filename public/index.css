@@ -16,3 +16,6 @@ html,body,#root
     border: solid 1px red;
     color:red;
 }
+.item{
+    margin-bottom:1rem;
+}
