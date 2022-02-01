@@ -32,6 +32,22 @@ export default function Fotos() {
 
     }
 
+    const onDelete = (e, id) => {
+        e.preventDefault()
+             
+        e.stopPropagation();
+        if (confirm("tem certeza ?")) {
+            fotosAPI().delete(id)
+                .then(resp => refreshFotosList())
+                .catch(erro => console.log(erro));
+        }
+
+    }
+
+    const estiloimagem = {
+        width: "200px",
+        height: "200px"
+    }
 
     return (
         <div className="row">
@@ -58,7 +74,11 @@ export default function Fotos() {
                             (
                                 fotos.map(
                                     (foto) => (
-                                        <li key={foto.fotoId}>{foto.imageName} -- {foto.description}</li>
+                                        <li key={foto.fotoId}>{foto.imageName} -- {foto.description} --{foto.fotoId}
+                                            <img src={foto.imageSrc} className="card-img-top rounded-circle" style={estiloimagem} ></img>
+                                            <button onClick={(e) => onDelete(e, parseInt(foto.fotoId))} >Deletar</button>
+
+                                        </li>
                                     )
                                 ))
                         }

@@ -59,6 +59,7 @@ export default function EmployeeList() {
             </div>
             <button onClick={(e) => onDelete(e, parseInt(data.employeeId))} >Deletar</button>
             <Link to={`/fotos/${data.employeeId}`} > Fotos </Link>
+            <Link to={`/skills/${data.employeeId}`} > Skills </Link>
 
         </div>
         );
@@ -92,6 +93,7 @@ export default function EmployeeList() {
                 <div className="jumbotron junbotron-fluid py-4">
                     <div className="container list">
                         <h1 className="display-4">Employee register</h1>
+                        <Link to={"/checkboxlist"} > checkboxlist </Link>
                     </div>
                 </div>
             </div>
